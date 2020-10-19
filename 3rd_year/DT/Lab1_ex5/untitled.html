@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <title>JavaScript app</title>
+</head>
+
+<style>
+.ecran{
+  background-color: blue;
+  color:white;
+  /*text-align: center;*/
+  width: 100px;
+}
+.taste{
+  background-color: #777777;
+  width: 100px;
+}
+
+</style>
+
+<body>
+
+  <button onClick="inc()">+</button>
+  <span id="counter"></span>
+  <button onClick="dec()">-</button> 
+
+  <br/>
+
+
+  <input type="text" id="a" />
+  <input type="text" id="b" /> <br />
+
+  <span id="result">  </span>
+
+  <!--<button onClick="add()"> + </button> -->
+
+<select id="type">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="/">/</option>
+  <option value="*">*</option>
+  <option value="%">%</option>
+</select>
+
+<button onClick="printResult()"> = </button>
+
+<br>
+<h3> Calculator frumos </h3>
+
+<div class="ecran" width="100px"><span id="screen"> 0 </span></div>
+<div class="taste">
+<button onClick="b1()">1</button>
+<button onClick="b2()">2</button>
+<button onClick="b3()">3</button> <br>
+<button onClick="b4()">4</button>
+<button onClick="b5()">5</button>
+<button onClick="b6()">6</button> <br>
+<button onClick="b7()">7</button>
+<button onClick="b8()">8</button>
+<button onClick="b9()">9</button> <br>
+
+<button onClick="add()">+</button>
+<button onClick="equals()">=</button>
+<button onClick="clearAll()">C</button> 
+ </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+Hf = tf([10.83, 107.7], [1, 10.47, 141.2, 88.7]);
+overshoot = 0.2;
+zeta = abs(log(overshoot))/sqrt((pi*pi)+(log(overshoot)*log(overshoot)))
+ts = 0.5;
+wn = 4/ts/zeta
+cv = wn/2/zeta
+Ho = tf([wn^2], [1 2*wn*zeta wn^2])
+Hc = tf([307.9, 10.47 * 307.9, 141.2 * 307.9, 88.7*307.9], conv([10.83, 107.7],[1 16 0]))
+Hcz = c2d(Hc,0.01,'tustin')

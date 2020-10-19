@@ -1,0 +1,192 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>script_circuit_tema</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-10-22"><meta name="DC.source" content="script_circuit_tema.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">reading data from simulink</a></li><li><a href="#3">tabel</a></li><li><a href="#4">prelucrare date</a></li><li><a href="#5">bode</a></li></ul></div><pre class="codeinput">clear
+R1=1e3;R2=1e3;R3=1e3;R4=2.2e3;R5=1e3;C1=1e-6;
+wc = 1/R2/C1;
+w=4000; <span class="comment">% the frequency i rad/sec. for the input signal</span>
+T=2*pi/w; Te=T/50; <span class="comment">% sampling period</span>
+sim(<span class="string">'circuit_tema'</span>);
+</pre><h2>reading data from simulink<a name="2"></a></h2><pre class="codeinput">t=data.time; <span class="comment">% simulation base</span>
+u=data.signals(1,2).values; <span class="comment">% input signal</span>
+y=data.signals(1,1).values; <span class="comment">% output signal</span>
+plot(t,u,<span class="string">'r'</span>,t,y,<span class="string">'b'</span>);
+title([<span class="string">'Raspunsul circuitului la semnal u(t)=sin('</span>,num2str(w),<span class="string">'t)'</span>])
+legend(<span class="string">'intrare'</span>,<span class="string">'iesire'</span>);
+xlabel(<span class="string">'Timp (sec.)'</span>)
+shg;grid
+</pre><img vspace="5" hspace="5" src="script_circuit_tema_01.png" style="width:560px;height:420px;" alt=""> <h2>tabel<a name="3"></a></h2><pre class="codeinput">tabel = [100, 0.09876, 0.5655, 0.5831;
+        143, 0.1398, 0.3954, 0.4077;
+        200, 0.1937, 0.2827, 0.2919;
+        250, 0.2403, 0.2262, 0.2337;
+        500, 0.4361, 0.1131, 0.1173;
+        1000, 0.6843, 0.05655, 0.05894;
+        2000, 0.8726, 0.02827, 0.02962;
+        4000, 0.9448, 0.1414, 0.01486;
+        5000, 0.9689, 0.01131, 0.0119;
+        7000, 0.9802, 0.008078, 0.008507;
+        10000, 0.9885, 0.005655, 0.005959]
+w = tabel(:,1); <span class="comment">%sir de pulsatii de test</span>
+Ass = tabel(:,2); <span class="comment">%amplitudinea semnalului de iesire in regim stationar;</span>
+tu = tabel(:,3); <span class="comment">%</span>
+ty = tabel(:,4); <span class="comment">%</span>
+</pre><pre class="codeoutput">
+tabel =
+
+   1.0e+04 *
+
+    0.0100    0.0000    0.0001    0.0001
+    0.0143    0.0000    0.0000    0.0000
+    0.0200    0.0000    0.0000    0.0000
+    0.0250    0.0000    0.0000    0.0000
+    0.0500    0.0000    0.0000    0.0000
+    0.1000    0.0001    0.0000    0.0000
+    0.2000    0.0001    0.0000    0.0000
+    0.4000    0.0001    0.0000    0.0000
+    0.5000    0.0001    0.0000    0.0000
+    0.7000    0.0001    0.0000    0.0000
+    1.0000    0.0001    0.0000    0.0000
+
+</pre><h2>prelucrare date<a name="4"></a></h2><pre class="codeinput">phi_s=tu-ty; <span class="comment">%defazaj in secunde</span>
+<span class="comment">%T = 2*pi./w;</span>
+phi_r=phi_s.*w; <span class="comment">%defazaj in radiani;</span>
+phi_g=rad2deg(phi_r); <span class="comment">%sau = 360/2/pi*phi_r;</span>
+
+figure(1);
+<span class="comment">% nyquist</span>
+polar(phi_r, Ass, <span class="string">'-r*'</span>)
+</pre><img vspace="5" hspace="5" src="script_circuit_tema_02.png" style="width:560px;height:420px;" alt=""> <h2>bode<a name="5"></a></h2><pre class="codeinput">figure(2);
+A_ss_dB = 20*log10(Ass);
+tu=tabel(:,2);
+ty=tabel(:,3);
+phi_s=tu-ty;
+subplot(211);title(<span class="string">'Caracteristca de modul'</span>)
+semilogx(w,A_ss_dB,<span class="string">'r*-'</span>);grid;hold
+subplot(212);title(<span class="string">'Caracteristca de faza'</span>)
+semilogx(w,phi_s,<span class="string">'r*-'</span>);grid;shg
+</pre><pre class="codeoutput">Current plot released
+</pre><img vspace="5" hspace="5" src="script_circuit_tema_03.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clear
+R1=1e3;R2=1e3;R3=1e3;R4=2.2e3;R5=1e3;C1=1e-6;
+wc = 1/R2/C1;
+w=4000; % the frequency i rad/sec. for the input signal 
+T=2*pi/w; Te=T/50; % sampling period
+sim('circuit_tema');
+%% reading data from simulink
+t=data.time; % simulation base
+u=data.signals(1,2).values; % input signal
+y=data.signals(1,1).values; % output signal
+plot(t,u,'r',t,y,'b'); 
+title(['Raspunsul circuitului la semnal u(t)=sin(',num2str(w),'t)'])
+legend('intrare','iesire');
+xlabel('Timp (sec.)')
+shg;grid
+
+%% tabel
+tabel = [100, 0.09876, 0.5655, 0.5831;
+        143, 0.1398, 0.3954, 0.4077;
+        200, 0.1937, 0.2827, 0.2919;
+        250, 0.2403, 0.2262, 0.2337;
+        500, 0.4361, 0.1131, 0.1173;
+        1000, 0.6843, 0.05655, 0.05894;
+        2000, 0.8726, 0.02827, 0.02962;
+        4000, 0.9448, 0.1414, 0.01486;
+        5000, 0.9689, 0.01131, 0.0119;
+        7000, 0.9802, 0.008078, 0.008507;
+        10000, 0.9885, 0.005655, 0.005959]
+w = tabel(:,1); %sir de pulsatii de test
+Ass = tabel(:,2); %amplitudinea semnalului de iesire in regim stationar;
+tu = tabel(:,3); %
+ty = tabel(:,4); %
+
+%% prelucrare date
+phi_s=tu-ty; %defazaj in secunde
+%T = 2*pi./w;
+phi_r=phi_s.*w; %defazaj in radiani;
+phi_g=rad2deg(phi_r); %sau = 360/2/pi*phi_r;
+
+figure(1);
+% nyquist
+polar(phi_r, Ass, '-r*')
+
+
+
+%% bode
+figure(2);
+A_ss_dB = 20*log10(Ass);
+tu=tabel(:,2);
+ty=tabel(:,3);
+phi_s=tu-ty;
+subplot(211);title('Caracteristca de modul')
+semilogx(w,A_ss_dB,'r*-');grid;hold
+subplot(212);title('Caracteristca de faza')
+semilogx(w,phi_s,'r*-');grid;shg
+
+##### SOURCE END #####
+--></body></html>

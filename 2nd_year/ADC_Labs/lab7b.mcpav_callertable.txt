@@ -1,0 +1,10 @@
+main
+	init_timer0
+	Init_Input_Capture
+	__CC2DW
+Timer0_ISR
+	display
+	Div_16x16_S
+COMP_ISR
+IC_ISR
+	Div_32x32_S

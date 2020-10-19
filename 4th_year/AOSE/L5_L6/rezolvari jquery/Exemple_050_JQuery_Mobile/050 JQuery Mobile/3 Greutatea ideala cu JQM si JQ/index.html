@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Greutatea ideală în JQuery Mobile</title>
+<link href="jquery.mobile-1.4.3.min.css" rel="stylesheet" type="text/css">
+<script src="jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
+
+<script>
+$(function() {
+    $("#calculeaza").on("click",function() {
+        var g=50+0.75*(parseInt($("#h").val())-150)+0.25*(parseInt($("#v").val())-20);
+        if($("#f").is(":checked")) g=0.9*g;
+        $("#g").val(g);
+    });
+});
+</script>
+</head>
+
+<body>
+<div data-role="page" id="pagina1">
+  <div data-role="header">
+    <h1>Greutatea ideală</h1>
+  </div>
+  <div data-role="content">
+    <div class="ui-field-contain">
+      <label for="h">Înălțimea (cm):</label>
+      <input type="number" id="h" placeholder="introduceți înălțimea" />
+    </div>
+    <div class="ui-field-contain">
+      <label for="v">Vârsta (ani):</label>
+      <input type="number" id="v" placeholder="introduceți vârsta" />
+    </div>
+    <div class="ui-field-contain">
+      <label for="f">Femeie:</label>
+      <input type="checkbox" id="f" data-role="flipswitch" data-on-text="Da" data-off-text="Nu" data-wrapper-class="custom-label-flipswitch" />
+    </div>
+    <div class="ui-field-contain">
+      <label for="g">Greutatea (kg):</label>
+      <input type="text" id="g" placeholder="greutatea calculată" readonly  />
+    </div>
+    <button id="calculeaza">Calculează</button>
+  </div>
+  
+  <div data-role="footer">
+    <h4>&copy; 2014</h4>
+  </div>
+</div>
+</body>
+</html>

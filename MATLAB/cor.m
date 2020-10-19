@@ -1,0 +1,1 @@
+load('lab5_1.mat')

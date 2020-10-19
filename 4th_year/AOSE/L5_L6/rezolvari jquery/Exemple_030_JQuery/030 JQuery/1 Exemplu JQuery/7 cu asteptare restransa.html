@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script>
+			$(function(){ // varianta scurtă; s-a schimbat doar acest rând (în loc de "$(document).ready(function() {", avem "$(function(){").
+				$("#btnschimbator").click(function(){
+					$("#divcutext").text("Text schimbat.");
+					
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="divcutext">
+			Text inițial.
+		</div>
+		
+		<form>
+			<input type="button" id="btnschimbator" value="Schimbă" />
+		</form>
+	</body>
+</html>

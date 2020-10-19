@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <style>
+      input {
+        height: 10em;
+        width: 10em;
+        padding: 40px;
+        margin: 20px 100px;
+        color: white;
+        /*background-color: green;*/
+        border-radius: 10px;
+      }
+    </style>
+    <div id="divcutext">
+      Text inițial.
+    </div>
+    <!-- Ne trebuie un formular, în care să afișăm butonul. -->
+    <!-- Început formular. -->
+    <div class="wrapper">
+      <form>
+        <!-- Butonul, cu textul "Schimbă" pe el. L-am botezat "btnschimbator". -->
+        <input type="button" id="btnschimbator" value="Schimbă" />
+        <input type="button" id="btnschimbator2" value="Schimbă size" />
+        <!-- Sfârșit formular. -->
+      </form>
+    </div>
+    <script>
+      // Funcție care va fi apelată în caz de clic pe buton.
+      // Deocamdată, e o funcție oarecare, nu este apelată de nimeni. O botezăm "functieschimbare".
+
+      var textSize = 10;
+      function functieschimbare() {
+        // Schimbă textul afișat în blocul div.
+        $("#divcutext").text("Text schimbat.");
+      }
+
+      function functieCrestere() {
+        $("#divcutext").css("font-size", textSize++);
+      }
+
+      function hoverIn() {
+        $("#btnschimbator").css("background-color", "green");
+      }
+      function hoverOut() {
+        $("#btnschimbator").css("background-color", "#D3D3D3");
+      }
+
+      // Facem legătura dintre butonul "btnschimbator", evenimentul "click" și numele funcției care trebuie apelată, când apare evenimentul clic asupra butonului. Avem o funcție pregătită pentru asta, se numește "functieschimbare".
+      $("#btnschimbator").click(functieschimbare);
+      $("#btnschimbator2").click(functieCrestere);
+      $("#btnschimbator").hover(hoverIn, hoverOut);
+    </script>
+  </body>
+</html>
+<!-- 
+2.1 Stiind ca pentru a accesa caracteristicile css ale unui element e nevoie de metoda
+$("#...")..css(css-attribute, value), creati o noua functie care creste dimensiunea textului 
+la fiecare apasare de mouse. Apelati aceasta functie cu ajutorului unui nou buton adaugat in pagina.
+
+2.2 Stiind ca pentru a asocia unui eveniment, apelul unei anumite functii se pot folosi metodele
+	mousemove()
+	mouseup()
+	mouseenter()
+	mousedown()
+	resize()
+	select()
+	hover( functie_in,functie_out)
+	change()
+	...
+
+ creati o noua functie care creste schimba culoarea de background a butonului la trecerea 
+ mouse-ului peste buton in green si la parasirea lui in light grey.
+ 
+ -->

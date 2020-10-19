@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>Greutatea ideală în JQuery</title>
+<script src="jquery-1.11.0.min.js" type="text/javascript"></script>
+<script>
+$(function() {
+	$("#butonas").on("click",function() {
+		var g=50+0.75*(parseInt($("#h").val())-150)+0.25*(parseInt($("#v").val())-20);
+		if($("#f").is(":checked")) g=0.9*g;
+		$("#g").text(g+" kg");
+	});
+});
+</script>
+</head>
+<body>
+<form>
+Înălțimea: <input type="text" id="h"><br>
+Vârsta: <input type="text" id="v"><br>
+Femeie: <input type="checkbox" id="f"><br>
+Greutatea ideală: <span id="g"></span><br>
+<input type="button" id="butonas" value="Calculează">
+</form>
+</body>
+</html>

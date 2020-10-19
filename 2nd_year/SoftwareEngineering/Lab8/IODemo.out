@@ -1,0 +1,17 @@
+1: <?xml version="1.0" encoding="UTF-8"?>
+2: <projectDescription>
+3: 	<name>Lab8</name>
+4: 	<comment></comment>
+5: 	<projects>
+6: 	</projects>
+7: 	<buildSpec>
+8: 		<buildCommand>
+9: 			<name>org.eclipse.jdt.core.javabuilder</name>
+10: 			<arguments>
+11: 			</arguments>
+12: 		</buildCommand>
+13: 	</buildSpec>
+14: 	<natures>
+15: 		<nature>org.eclipse.jdt.core.javanature</nature>
+16: 	</natures>
+17: </projectDescription>

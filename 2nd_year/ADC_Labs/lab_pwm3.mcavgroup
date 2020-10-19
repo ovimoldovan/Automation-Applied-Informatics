@@ -1,0 +1,8 @@
+[PROJECTS]
+Count=4
+Project0=C:\Users\Process Control\Desktop\LAB 6\Lab8\MyProject.mcpav
+Project1=..\..\30125\Andreea&Bianca\lab8.mcpav
+Project2=..\..\30125\Andreea&Bianca\lab8B.mcpav
+Project3=lab_pwm.mcpav
+[ActiveProject]
+Index=3

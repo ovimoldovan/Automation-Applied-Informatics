@@ -1,0 +1,29 @@
+﻿<!doctype html>
+
+<!-- Început interfață aplicație. -->
+<html>
+	<!-- Început antet interfață. -->
+	<head>
+		<!-- UTF-8, poate vom folosi diacritice -->
+		<meta charset="UTF-8" />
+		<!-- Încărcăm biblioteca jQuery. -->
+		<script src="js/jquery-1.11.3.min.js"></script>
+	<!-- Sfârșit antet interfață. -->
+	</head>
+	<!-- Început corp interfață. -->
+	<body>
+			<!-- Un bloc cu text, l-am botezat "divcutext". -->
+		<div id="divcutext">
+			Text inițial.
+		</div>
+		<script>
+			<!-- Schimbăm textul blocului. Instrucțiunea de mai jos se execută automat, fără a aștepta vreun eveniment declanșator.-->
+			<!-- De fapt, textul inițial nici nu va fi vizibil, decât pentru câteva milisecunde, la pornire. -->
+			$("#divcutext").text("Text schimbat.");
+		</script>
+	
+	<!-- Sfârșit corp interfață. -->
+	</body>
+
+<!-- Sfârșit interfață aplicație. -->
+</html>

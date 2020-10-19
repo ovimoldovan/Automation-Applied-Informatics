@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>
+      Pagina cu JavaScript
+    </title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      document.write("Avem text pe pagina!js");
+      document.write("<br />");
+      document.write("<i>" + "Avem text pe pagina!" + "<\/i>");
+    </script>
+    <br />
+    Text html
+    <br />
+    <script type="text/javascript" src="extern.js"></script>
+    <br />
+    <script type="text/javascript">
+      var textul = "Textul cu variabila";
+      document.write("<i>" + textul + "<\/i>");
+    </script>
+
+    <script>
+      var textul = "Textul interesant";
+      document.write("<i>" + textul + "<\/i>");
+      alert(textul);
+
+      function suma(a, b) {
+        rezultatul = a + b;
+        return rezultatul;
+      }
+      alert(suma("O zi ", "buna"));
+      document.write("<br>Suma lui 1+2 este: " + suma(1, 2));
+    </script>
+    <br />
+    <script>
+      if (navigator.appName.indexOf("Internet Explorer") != -1) {
+        alert("Este Internet Explorer!");
+      } else {
+        alert("Nu este Internet Explorer!");
+      }
+
+      for (i = 0; i < 20; i++) {
+        document.write("valoarea lui i: " + i + "<br>");
+      }
+    </script>
+
+    <form>
+      <input
+        type="button"
+        value="Apasa-ma!"
+        onclick='window.open("https://www.protv.ro",
+        "fereastra_noua")'
+      />
+    </form>
+
+    <script type="text/vbscript">
+      document.write("valoarea lui i: ")
+      msgbox ("Casuta VBScript!")
+    </script>
+  </body>
+</html>

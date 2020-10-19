@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script>
+			// Așteaptă, până se încarcă toată structura documentului.
+			$(document).ready(function() {
+			
+				// structura s-a încărcat, putem începe
+				$("#btnschimbator").click(function(){
+					$("#divcutext").text("Text schimbat.");
+				});
+				
+			}); // sfârșit bloc așteptare încărcare		
+		</script>
+		<style >
+		input{
+		height:10em;
+		width:10em;
+		padding:40px;
+		margin:20px 100px;
+		color:white;
+		background-color:green;
+		border-radius:10px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div id="divcutext">
+			Text inițial.
+		</div>
+		
+		<form>
+			<input type="button" id="btnschimbator" value="Schimbă" />
+		</form>
+	</body>
+</html>

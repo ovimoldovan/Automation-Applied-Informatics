@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+      function hoverIn() {
+        $("#btnschimbator2").css("font-size", 10);
+        $("#btnschimbator2").css("height", "12em");
+        $("#btnschimbator2").css("width", "12em");
+      }
+      function hoverOut() {
+        $("#btnschimbator2").css("font-size", 9);
+        $("#btnschimbator2").css("height", "10em");
+        $("#btnschimbator2").css("width", "10em");
+      }
+
+      // Așteaptă, până se încarcă toată structura documentului.
+      $(document).ready(function () {
+        $("#btnschimbator").click(function () {
+          $("#divcutext").animate({ left: "230px" });
+        });
+      });
+      $(document).ready(function () {
+        $("#btnschimbator2").click(function () {
+          $("#divcutext").animate({ left: "0px" });
+        });
+      });
+
+      $(document).ready(function () {
+        $("#btnschimbator2").hover(hoverIn, hoverOut);
+      });
+
+      // sfârșit bloc așteptare încărcare
+    </script>
+    <script></script>
+    <style>
+      input {
+        height: 10em;
+        width: 10em;
+        padding: 40px;
+        margin: 20px 100px;
+        color: white;
+        background-color: green;
+        border-radius: 10px;
+      }
+      #divcutext {
+        height: 10em;
+        width: 10em;
+        background-color: orange;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divcutext">
+      Text inițial.
+    </div>
+
+    <form>
+      <input type="button" id="btnschimbator" value="Schimbă" />
+
+      <input type="button" id="btnschimbator2" value="Reset" />
+    </form>
+  </body>
+</html>
+<!--
+6.1 Executati. Apasati butonul verde.
+    Eliminati comentariul pentru position:relative;. Executati din nou si apasati butonul verde. Ce observati?
+6.2
+ Creati o noua functie care readuce #divcutext la starea initiala.
+6.3
+  Stiind ca se poate simula extinderea dimensiunii suprafetei (width,height) si schimbarea dimensiunii fontului(fontSize), 
+  modificati codul sursa pentru a adauga aceste efecte asupra butonului la evenimentul de hover:
+  la mouse in cresc aceste caracteristici, la mouse out, descresc.
+
+ -->

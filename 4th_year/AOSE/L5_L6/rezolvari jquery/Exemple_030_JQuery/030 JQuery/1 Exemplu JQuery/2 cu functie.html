@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="js/jquery-1.11.3.min.js"></script>
+	
+	
+	</head>
+	<body>
+		<style >
+		input{
+		height:10em;
+		width:10em;
+		padding:40px;
+		margin:20px 100px;
+		color:white;
+		background-color:green;
+		border-radius:10px;
+		}
+		</style>
+		<div id="divcutext">
+			Text inițial.
+		</div>
+		<!-- Ne trebuie un formular, în care să afișăm butonul. -->
+		<!-- Început formular. -->
+		<div class="wrapper">
+		<form>
+			<!-- Butonul, cu textul "Schimbă" pe el. L-am botezat "btnschimbator". -->
+			<input type="button" id="btnschimbator" value="Schimbă" />
+		<!-- Sfârșit formular. -->
+		</form>
+		</div>
+		<script>
+			// Funcție care va fi apelată în caz de clic pe buton.
+			// Deocamdată, e o funcție oarecare, nu este apelată de nimeni. O botezăm "functieschimbare".
+			function functieschimbare()
+				{
+					// Schimbă textul afișat în blocul div.
+					$("#divcutext").text("Text schimbat.");
+				}
+				function functieincrease()
+				{
+					// Schimbă textul afișat în blocul div.
+					$("#divcutext").css({"font-size:24px;"});
+				}
+				
+				
+			// Facem legătura dintre butonul "btnschimbator", evenimentul "click" și numele funcției care trebuie apelată, când apare evenimentul clic asupra butonului. Avem o funcție pregătită pentru asta, se numește "functieschimbare".
+			$("#btnschimbator").click(functieschimbare);	
+            $("#btnschimbator").hover(functieincrese);			
+		</script>
+	</body>
+</html>
+<!-- 2.1 Stiind ca:
+	

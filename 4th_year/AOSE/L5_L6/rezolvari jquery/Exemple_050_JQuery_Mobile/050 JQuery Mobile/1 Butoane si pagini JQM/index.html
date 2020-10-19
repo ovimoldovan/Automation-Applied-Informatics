@@ -1,0 +1,38 @@
+<html>
+  <head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="jquery.mobile-1.4.2.min.css" />
+    <script src="jquery-1.11.0.min.js"></script> <!-- trebuie inclus, JQM îl folosește -->
+    <script src="jquery.mobile-1.4.2.min.js"></script> <!-- important să fie după jquery.js -->
+	<script>
+		$(function() {
+			$("#butonspredoi").on("click",function(){
+				$.mobile.changePage("#pag2");
+			});
+			$("#inputspredoi").on("click",function(){
+				$.mobile.changePage("#pag2");
+				// mergea și cu $("#butonspredoi").trigger("click"), adică putem declanșa evenimentul click al celuilalt buton
+			});
+		});
+	</script>
+  </head>
+  <body>
+  
+    <div data-role="page" id="pag1">
+      <div data-role="header"><h1>Prima pagină</h1></div>
+      <div data-role="content">
+		<a data-role="button" id="legaturaladoi" href="#pag2">Legătură spre doi</a> <!-- recomandat pentru navigație -->
+		<button id="butonspredoi">Bloc buton spre doi</button> <!-- recomandat pentru declanșare evenimente -->
+		<input type="button" id="inputspredoi" value="Input spre doi" /> <!-- recomandat pentru trimitere formulare -->
+	  </div>
+      <div data-role="footer"><h1>Mere</h1></div>
+    </div>
+	
+    <div data-role="page" id="pag2">
+      <div data-role="header"><h1>A doua pagină</h1></div>
+      <div data-role="content">Text pe a doua pagină</div>
+      <div data-role="footer"><h1>Pere</h1></div>
+    </div>
+	
+  </body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div id="divcutext">
+			Text inițial.
+		</div>
+		
+		<form>
+			<input type="button" id="btnschimbator" value="Schimbă" />
+		</form>
+		
+		<script>
+			/*
+			Este inutil să avem funcție dedicată pentru clic.
+			Pe de altă parte, nu putem scrie instrucțiunile direct ca parametri ai lui .click(). De aceea, folosim o funcție anonimă, ca parametru al lui .click(). Funcția anonimă nu are nume.
+			*/
+			
+			$("#btnschimbator").click(
+				function()
+					{
+						$("#divcutext").text("Text schimbat.");
+					}
+			);		
+		</script>
+	</body>
+</html>
